@@ -9,6 +9,7 @@
 ## How It Works
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 flowchart LR
     A["System Prompt"] --> B["Policy Extraction"]
     B --> C["Scripted Agent"]
@@ -17,13 +18,13 @@ flowchart LR
     E --> F["Statistics"]
     F --> G["Regression Report"]
 
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#fff3e0,stroke:#ef6c00
-    style C fill:#e8f5e9,stroke:#2e7d32
-    style D fill:#f3e5f5,stroke:#7b1fa2
-    style E fill:#e3f2fd,stroke:#1565c0
-    style F fill:#fff3e0,stroke:#ef6c00
-    style G fill:#e8f5e9,stroke:#2e7d32
+    style A fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style C fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style F fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style G fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 1. **Extract policy flags** from your system prompt (e.g., `confirm_destructive`, `refuse_bulk`)
@@ -84,6 +85,7 @@ python -m driftbench compare <baseline-run-id> <candidate-run-id>
 ### `run` — Execute a variant against the suite
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 flowchart TD
     A["--variant prompt.txt"] --> B{"--agent?"}
     B -->|"scripted"| C["Deterministic replay"]
@@ -96,16 +98,16 @@ flowchart TD
     H --> I["Compute outcome"]
     I --> J["Save to JSONL"]
 
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#fff3e0,stroke:#ef6c00
-    style C fill:#e8f5e9,stroke:#2e7d32
-    style D fill:#fff3e0,stroke:#ef6c00
-    style E fill:#f3e5f5,stroke:#7b1fa2
-    style F fill:#f3e5f5,stroke:#7b1fa2
-    style G fill:#e8f5e9,stroke:#2e7d32
-    style H fill:#e3f2fd,stroke:#1565c0
-    style I fill:#fff3e0,stroke:#ef6c00
-    style J fill:#e8f5e9,stroke:#2e7d32
+    style A fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style C fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style F fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style G fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style H fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style I fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style J fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 **Flags:**
@@ -151,6 +153,7 @@ python -m driftbench run --variant prompts/v2_ablated.txt --explain
 ### `compare` — Diff two recorded runs
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 flowchart TD
     A["Run A (baseline)"] --> B["Load trajectories"]
     C["Run B (candidate)"] --> B
@@ -167,21 +170,21 @@ flowchart TD
     M --> N["Policy delta"]
     N --> O["Report"]
 
-    style A fill:#e8f5e9,stroke:#2e7d32
-    style B fill:#f3e5f5,stroke:#7b1fa2
-    style C fill:#fff3e0,stroke:#ef6c00
-    style D fill:#e3f2fd,stroke:#1565c0
-    style E fill:#ffebee,stroke:#c62828
-    style F fill:#e3f2fd,stroke:#1565c0
-    style G fill:#fff3e0,stroke:#ef6c00
-    style H fill:#fff3e0,stroke:#ef6c00
-    style I fill:#fff3e0,stroke:#ef6c00
-    style J fill:#e3f2fd,stroke:#1565c0
-    style K fill:#ffebee,stroke:#c62828
-    style L fill:#e8f5e9,stroke:#2e7d32
-    style M fill:#f3e5f5,stroke:#7b1fa2
-    style N fill:#f3e5f5,stroke:#7b1fa2
-    style O fill:#e8f5e9,stroke:#2e7d32
+    style A fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style C fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style F fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style G fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style H fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style I fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style J fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style K fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style L fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style M fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style N fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style O fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 **Flags:**
@@ -218,6 +221,7 @@ v1_baseline -> v2_ablated: 6 of 41 tasks regressed
 **Detects two types of flakiness:**
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 flowchart LR
     A["Run N replicates"] --> B["Cluster trajectories"]
     B --> C{"Outcome varies?"}
@@ -226,13 +230,13 @@ flowchart LR
     E -->|"Yes"| F["Latent flake"]
     E -->|"No"| G["Stable"]
 
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#fff3e0,stroke:#ef6c00
-    style C fill:#e3f2fd,stroke:#1565c0
-    style D fill:#ffebee,stroke:#c62828
-    style E fill:#e3f2fd,stroke:#1565c0
-    style F fill:#fff8e1,stroke:#f9a825
-    style G fill:#e8f5e9,stroke:#2e7d32
+    style A fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style C fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style F fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style G fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 **Example output:**
@@ -277,6 +281,7 @@ replicate 0  outcome=fail  steps=7  calls=3
 ### `variants` — Show prompt flags and blast radius
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 flowchart TD
     A["System Prompt"] --> B["Extract flags via regex"]
     B --> C["confirm_destructive"]
@@ -289,17 +294,17 @@ flowchart TD
     E --> J["ref-mass-refund"]
     E --> K["ref-delete-secrets"]
 
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#fff3e0,stroke:#ef6c00
-    style C fill:#ffebee,stroke:#c62828
-    style D fill:#ffebee,stroke:#c62828
-    style E fill:#ffebee,stroke:#c62828
-    style F fill:#ffebee,stroke:#c62828
-    style G fill:#ffebee,stroke:#c62828
-    style H fill:#ffebee,stroke:#c62828
-    style I fill:#ffebee,stroke:#c62828
-    style J fill:#ffebee,stroke:#c62828
-    style K fill:#ffebee,stroke:#c62828
+    style A fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style C fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style F fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style G fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style H fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style I fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style J fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style K fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 ---
@@ -350,6 +355,7 @@ python -m driftbench suite --category safety
 ## Architecture
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 graph TB
     subgraph CLI["CLI Layer"]
         CLI1["cli.py"]
@@ -414,26 +420,26 @@ graph TB
     D2 --> V1
     D2 --> A1
 
-    style CLI1 fill:#e3f2fd,stroke:#1565c0
-    style CLI2 fill:#e3f2fd,stroke:#1565c0
-    style E1 fill:#e8f5e9,stroke:#2e7d32
-    style E2 fill:#e8f5e9,stroke:#2e7d32
-    style E3 fill:#e8f5e9,stroke:#2e7d32
-    style E4 fill:#e8f5e9,stroke:#2e7d32
-    style E5 fill:#e8f5e9,stroke:#2e7d32
-    style E6 fill:#e8f5e9,stroke:#2e7d32
-    style A1 fill:#fff3e0,stroke:#ef6c00
-    style A2 fill:#fff3e0,stroke:#ef6c00
-    style A3 fill:#fff3e0,stroke:#ef6c00
-    style T1 fill:#f3e5f5,stroke:#7b1fa2
-    style T2 fill:#f3e5f5,stroke:#7b1fa2
-    style V1 fill:#f3e5f5,stroke:#7b1fa2
-    style V2 fill:#f3e5f5,stroke:#7b1fa2
-    style V3 fill:#f3e5f5,stroke:#7b1fa2
-    style D1 fill:#fff8e1,stroke:#f9a825
-    style D2 fill:#fff8e1,stroke:#f9a825
-    style D3 fill:#fff8e1,stroke:#f9a825
-    style D4 fill:#fff8e1,stroke:#f9a825
+    style CLI1 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style CLI2 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E1 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E2 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E3 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E4 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E5 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E6 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style A1 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style A2 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style A3 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style T1 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style T2 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style V1 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style V2 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style V3 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D1 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D2 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D3 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D4 fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 ---
@@ -441,6 +447,7 @@ graph TB
 ## Statistical Engine
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 flowchart LR
     A["Raw pass/fail counts"] --> B["Wilson confidence interval"]
     B --> C["Proportion delta (pp)"]
@@ -451,15 +458,15 @@ flowchart LR
     G -->|"Yes"| H["Significant regression"]
     G -->|"No"| I["Noise"]
 
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#fff3e0,stroke:#ef6c00
-    style C fill:#fff3e0,stroke:#ef6c00
-    style D fill:#fff3e0,stroke:#ef6c00
-    style E fill:#fff3e0,stroke:#ef6c00
-    style F fill:#fff3e0,stroke:#ef6c00
-    style G fill:#e3f2fd,stroke:#1565c0
-    style H fill:#ffebee,stroke:#c62828
-    style I fill:#f5f5f5,stroke:#9e9e9e
+    style A fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style C fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style F fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style G fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style H fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style I fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 **Why this matters:**
@@ -474,6 +481,7 @@ flowchart LR
 ## Trajectory Diffing
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 sequenceDiagram
     participant B as Baseline
     participant C as Candidate
@@ -497,6 +505,7 @@ sequenceDiagram
 ## Latent Flakiness Detection
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 flowchart TD
     A["Run 5 replicates"] --> B["Build trajectory for each"]
     B --> C["Canonicalize each trajectory"]
@@ -507,15 +516,15 @@ flowchart TD
     G -->|"Yes"| H["LATENT FLAKE\nGreen now, will fail later"]
     G -->|"No"| I["STABLE\nDeterministic and passing"]
 
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#e3f2fd,stroke:#1565c0
-    style C fill:#fff3e0,stroke:#ef6c00
-    style D fill:#fff3e0,stroke:#ef6c00
-    style E fill:#e3f2fd,stroke:#1565c0
-    style F fill:#ffebee,stroke:#c62828
-    style G fill:#e3f2fd,stroke:#1565c0
-    style H fill:#fff8e1,stroke:#f9a825
-    style I fill:#e8f5e9,stroke:#2e7d32
+    style A fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style C fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style F fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style G fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style H fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style I fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 **Example:**
@@ -535,6 +544,7 @@ err-flaky-doc-index: 2 behaviours, 0.42 entropy
 ## Data Flow
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 flowchart LR
     A["System Prompt"] --> B["Policy Flags"]
     B --> C["Variant Hash"]
@@ -548,18 +558,18 @@ flowchart LR
     J --> K["SQLite Index"]
     K --> L["Compare / Flake / Show"]
 
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#fff3e0,stroke:#ef6c00
-    style C fill:#fff3e0,stroke:#ef6c00
-    style D fill:#e8f5e9,stroke:#2e7d32
-    style E fill:#f3e5f5,stroke:#7b1fa2
-    style F fill:#f3e5f5,stroke:#7b1fa2
-    style G fill:#e8f5e9,stroke:#2e7d32
-    style H fill:#e3f2fd,stroke:#1565c0
-    style I fill:#fff3e0,stroke:#ef6c00
-    style J fill:#fff8e1,stroke:#f9a825
-    style K fill:#fff8e1,stroke:#f9a825
-    style L fill:#e8f5e9,stroke:#2e7d32
+    style A fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style C fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style F fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style G fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style H fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style I fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style J fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style K fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style L fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 ---
@@ -640,6 +650,7 @@ python -m driftbench run \
 ## Data Storage
 
 ```mermaid
+%%{init: {"theme": "dark"}}%%
 flowchart LR
     A["Run executed"] --> B["JSONL archive"]
     B --> C["SQLite index"]
@@ -647,12 +658,12 @@ flowchart LR
     C --> E["Query by variant"]
     C --> F["Query by task"]
 
-    style A fill:#e3f2fd,stroke:#1565c0
-    style B fill:#fff8e1,stroke:#f9a825
-    style C fill:#fff8e1,stroke:#f9a825
-    style D fill:#e8f5e9,stroke:#2e7d32
-    style E fill:#e8f5e9,stroke:#2e7d32
-    style F fill:#e8f5e9,stroke:#2e7d32
+    style A fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style B fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style C fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style D fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style E fill:#1a1a1a,stroke:#ffffff,color:#ffffff
+    style F fill:#1a1a1a,stroke:#ffffff,color:#ffffff
 ```
 
 **Custom storage directory:**
